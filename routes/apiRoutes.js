@@ -13,27 +13,36 @@ app.get("/api/notes",(req, res)=>{
     if (err){
       throw err;
     }
-   else{
-     return res.json(JSON.parse(data));
-   }
+
+    var note = JSON.parse(data)
+    return res.json(note);
+   
   });
-   var notes = [];
+   
   app.post("/api/notes",(req, res)=>{
-    var note = req.body;
-     notes.push(note);
-     res.json(note);
+    var myNote = req.body;
+     note.push(myNote);
+     res.json(myNote);
   })
   app.delete("/api/notes/:id",(req, res)=>{
 
-    fs.readFile("./db/db.json", "utf8", (err, data)=>{
-      if (err){
-        throw err;
+    // fs.readFile("./db/db.json", "utf8", (err, data)=>{
+    //   if (err){
+    //     throw err;
+    //   }
+
+      let id = req.params.id.toString();
+      console.log(id);
+      for (let i=0; i<note.length;i++){
+        if(note[i].id === id){
+           res.json(note[i]);
+          
+        }
       }
     })
 
 
   })
 
-})
-
 }
+
