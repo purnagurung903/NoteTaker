@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "NoteTaker",
+			"path": "../../../../../NoteTaker"
+		},
+		{
+			"name": "Develop",
+			"path": ".."
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
+}

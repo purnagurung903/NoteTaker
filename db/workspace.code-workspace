@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../NoteTaker"
+		},
+		{
+			"path": "../public"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
+}
