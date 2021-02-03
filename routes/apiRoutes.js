@@ -21,12 +21,11 @@ module.exports = app => {
    
   app.post("/api/notes",(req, res)=>{
 
+    //ned the file and put the value in a note arrayed to rea
     fs.readFile("./db/db.json", "utf8",(err, data)=>{
       if (err)throw err;
       var note = JSON.parse(data)
-    
-    
-    //need to read the file and put the value in a note array
+      
     var myNote = req.body;
     
      note.push(myNote);

@@ -7,7 +7,9 @@ This note taker app allows the user to write, save, and delete notes.This app us
  https://aqueous-peak-19906.herokuapp.com/
 
 ## GITHUB Repo:
+git@github.com:purnagurung903/NoteTaker.git
 
+file:///Users/purnagurung/Desktop/Screen%20Shot%202021-02-02%20at%2010.23.29%20PM.png
 ## USER STORY & REQUIREMENTS
 
 As a user, I want to write and save notes.
