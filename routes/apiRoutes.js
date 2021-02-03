@@ -7,42 +7,68 @@ const fs = require("fs");
 
 module.exports = app => {
 //API GET request
-app.get("/api/notes",(req, res)=>{
+  app.get("/api/notes",(req, res)=>{
   fs.readFile("./db/db.json","utf8",(err, data)=>
   {
-    if (err){
-      throw err;
-    }
+    if (err)throw err;
+    
 
     var note = JSON.parse(data)
     return res.json(note);
    
   });
+ })
    
   app.post("/api/notes",(req, res)=>{
+
+    fs.readFile("./db/db.json", "utf8",(err, data)=>{
+      if (err)throw err;
+      var note = JSON.parse(data)
+    
+    
+    //need to read the file and put the value in a note array
     var myNote = req.body;
+    
      note.push(myNote);
-     res.json(myNote);
+     //fs.writeFileSync here to write the new array with the pushed note
+
+    
+     fs.writeFileSync("./db/db.json", JSON.stringify(note), "utf-8");
+     
+     return res.json(myNote);
+   
+    })
   })
   app.delete("/api/notes/:id",(req, res)=>{
 
-    // fs.readFile("./db/db.json", "utf8", (err, data)=>{
-    //   if (err){
-    //     throw err;
-    //   }
+    fs.readFile("./db/db.json", "utf8",(err, data)=>{
+      if (err)throw err;
+      var note = JSON.parse(data)
+      
+      let deleteId = req.params.id;
+      console.log(deleteId);
 
-      let id = req.params.id.toString();
-      console.log(id);
-      for (let i=0; i<note.length;i++){
-        if(note[i].id === id){
-           res.json(note[i]);
-          
+      for (let i = 0; i < note.length; i++){
+        if (deleteId !== note[i].id){
+          note.splice(i, 1);
         }
       }
-    })
+
+      fs.writeFileSync("./db/db.json", JSON.stringify(note), "utf-8");
+     
+     return res.sendStatus(200);
 
 
+
+
+      //use a filter here instead, return whatever note.id !== req.params.id
+      //res.sendStatus(200)
+      
   })
+})
+
+
+  
 
 }
 
