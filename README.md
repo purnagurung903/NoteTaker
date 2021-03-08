@@ -1,4 +1,6 @@
 # NoteTaker
+<img width="1440" alt="Screen Shot 2021-02-02 at 10 23 29 PM" src="https://user-images.githubusercontent.com/69695368/110267634-39fe9000-7f8e-11eb-8085-cf612ae96d46.png">
+
 # DESCRIPTION
 
 This note taker app allows the user to write, save, and delete notes.This app use an express backend and save and retrive note sata from JSON file.It is deployed on Heroku.
